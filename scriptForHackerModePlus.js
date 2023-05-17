@@ -2343,16 +2343,7 @@ document.querySelector(".save").addEventListener("click", (event) => {
     horiNumber: horiNumber,
     vertiNumber: vertiNumber,
     abcda: abcda,
-    movingObstacle1X: movingObstacle1X,
-    movingObstacle1Y: movingObstacle1Y,
-    movingObstacle2X: movingObstacle2X,
-    movingObstacle2Y: movingObstacle2Y,
-    movingObstacle3X: movingObstacle3X,
-    movingObstacle3Y: movingObstacle3Y,
-    velocityXofObs2v1: velocityXofObs2v1,
-    velocityYofObs2v1: velocityYofObs2v1,
-    velocityXofObs2v2: velocityXofObs2v2,
-    velocityYofObs2v2: velocityYofObs2v2,
+
     portalX: portalX,
     portalY: portalY,
     portals: portals,
@@ -2468,16 +2459,7 @@ const loadState = () => {
     horiNumber = GameSafe.horiNumber;
     vertiNumber = GameSafe.vertiNumber;
     abcda = GameSafe.abcda;
-    movingObstacle1X = GameSafe.movingObstacle1X;
-    movingObstacle1Y = GameSafe.movingObstacle1Y;
-    movingObstacle2X = GameSafe.movingObstacle2X;
-    movingObstacle2Y = GameSafe.movingObstacle2Y;
-    movingObstacle3X = GameSafe.movingObstacle3X;
-    movingObstacle3Y = GameSafe.movingObstacle3Y;
-    velocityXofObs2v1 = GameSafe.velocityXofObs2v1;
-    velocityYofObs2v1 = GameSafe.velocityYofObs2v1;
-    velocityXofObs2v2 = GameSafe.velocityXofObs2v2;
-    velocityYofObs2v2 = GameSafe.velocityYofObs2v2;
+ 
     portalX = GameSafe.portalX;
     portalY = GameSafe.portalY;
     portals = GameSafe.portals;
