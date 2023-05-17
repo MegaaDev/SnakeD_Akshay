@@ -500,7 +500,7 @@ document.addEventListener("keydown", (event) => {
 
     bgMusic.play();
     resetAllReloadNoAudio();
-    boolforListener = ture;
+    boolforListener = true;
     started = true;
   }
 
