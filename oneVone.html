@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleFor1v1.css" />
+    <title>Snake</title>
+  </head>
+  <body>
+    <div class="mobilemsg">
+      <div class="contentformobile">
+        <h2>1V1 mode available only for Screens more than 1000px width</h2>
+      </div>
+    </div>
+    <div class="background-container">
+      <div class="bgBlur hideIt"></div>
+
+      <div class="threelivesover hideMe">
+        <div class="gameover">
+          <span style="--i: 1">G</span>
+          <span style="--i: 2">A</span>
+          <span style="--i: 3">M</span>
+          <span style="--i: 4">E</span>
+
+          <span style="--i: 5">O</span>
+          <span style="--i: 6">V</span>
+          <span style="--i: 6">E</span>
+          <span style="--i: 7">R</span>
+        </div>
+        <div class="scoreContainer">
+          <div class="player1scoreit"></div>
+          <div class="player2scoreit"></div>
+        </div>
+
+        <div class="winner">PLAYER1 WON!</div>
+
+        <div class="restartit">Press <span>R</span> to Restart</div>
+      </div>
+      <div class="pauseMenu hideIt">
+        <div class="pauseMenuContent">
+          <div class="grid-variable-state">
+            <div class="grid-change"><h3>GRID-SIZE</h3></div>
+            <div class="mega">
+              <div class="gird-state grid-state-20"><h3>20x20</h3></div>
+              <div class="gird-state grid-state-30"><h3>30x30</h3></div>
+            </div>
+            <div>
+              <div class="gird-state grid-state-40"><h3>40x40</h3></div>
+              <div class="gird-state grid-state-60"><h3>60x60</h3></div>
+            </div>
+          </div>
+          <div class="pauseAndResume">
+            <div class="restart"><h3>RESTART</h3></div>
+            <div class="resume"><h3>RESUME</h3></div>
+
+            <div class="main-menu">
+              <a href="index.html"><h3>MAIN MENU</h3></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-with-heart-container">
+        <div class="flex-container">
+          <div class="irotateMobile hiddenit">
+            <i class="fa-solid fa-circle-pause"></i>
+          </div>
+
+          <div class="scoreit">
+            <h1 class="timer">60</h1>
+          </div>
+
+          <div class="heartAndGameBox">
+            <div class="heart">
+              <div class="div1">
+                <div class="volume-high">
+                  <i class="fa-sharp fa-solid fa-volume-high emptyList"></i>
+                </div>
+                <div><i class="fa-solid fa-pause"></i></div>
+              </div>
+              <div class="div2">
+                <div>
+                  <img class="heart1" src="./images/heart.png" alt="" />
+                </div>
+                <div>
+                  <img class="heart2" src="./images/heart.png" alt="" />
+                </div>
+                <div>
+                  <img class="heart3" src="./images/heart.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="player1logo"></div>
+            <div class="player1score">
+              <div class="player1">PLAYER1</div>
+              <div class="score1">0</div>
+            </div>
+            <div class="gameBox">
+              <div class="headsnake"></div>
+              <div class="headsnakev"></div>
+              <div class="game-container"></div>
+            </div>
+            <div class="grid-value">
+              <div class="grid-variable-state-menu">
+                <div>
+                  <div class="grid-menu grid-state-menu-20">
+                    <h3>20x20</h3>
+                  </div>
+                  <div class="grid-menu grid-state-menu-30">
+                    <h3>30x30</h3>
+                  </div>
+                </div>
+                <div>
+                  <div class="grid-menu grid-state-menu-40">
+                    <h3>40x40</h3>
+                  </div>
+                  <div class="grid-menu grid-state-menu-60">
+                    <h3>60x60</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="player2score">
+              <div class="player2">PLAYER2</div>
+              <div class="score2">0</div>
+            </div>
+          </div>
+
+          <div class="sequence"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="bottom-grid">
+          <div class="circle"></div>
+          <div class="arrowit up">
+            <img class="clickup" src="./images/arrow.png" alt="" />
+          </div>
+          <div class="arrowit down">
+            <img class="clickdown" src="./images/arrow.png" alt="" />
+          </div>
+          <div class="arrowit right">
+            <img class="clickright" src="./images/arrow.png" alt="" />
+          </div>
+          <div class="arrowit left">
+            <img class="clickleft" src="./images/arrow.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="Controls"></div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/929af33233.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="scriptFor1v1.js"></script>
+  </body>
+</html>

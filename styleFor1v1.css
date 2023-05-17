@@ -1,0 +1,1840 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Odibee+Sans&family=Orbitron:wght@400;500;600;700;800;900&family=Play:wght@400;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --grid-template: repeat(40, 1fr) / repeat(40, 1fr);
+  --main-size: 15px;
+  --display: block;
+  --mobile-size: 9.25px;
+  --initialX: 15px;
+  --initialY: 15px;
+  --initialXv: 15px;
+  --initialYv: 15px;
+  --finalX: 15px;
+  --finalY: 15px;
+  --speed: 100ms;
+  --finalX1: 15px;
+  --finalY1: 15px;
+  --finalX2: 15px;
+  --finalY2: 15px;
+  --finalX3: 15px;
+  --finalY3: 15px;
+  --finalX4: 15px;
+  --finalY4: 15px;
+  --obstacles-speed: 300ms;
+  --image: url("./images/bomb.png");
+}
+
+/* @keyframes obstacle {
+  0%{
+
+  }
+} */
+
+.obstacles1 {
+  background-image: var(--image);
+  background-position: center;
+  background-size: cover;
+  border-radius: 3px;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: var(--finalX);
+  top: var(--finalY);
+  transition: all var(--obstacles-speed) linear;
+  display: block;
+}
+.obstacles2 {
+  background-image: url("./images/bomb.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 3px;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: var(--finalX1);
+  top: var(--finalY1);
+  transition: all var(--obstacles-speed) linear;
+  display: block;
+}
+.obstacles3 {
+  background-image: url("./images/bomb.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 3px;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: var(--finalX2);
+  top: var(--finalY2);
+  transition: all var(--obstacles-speed) linear;
+  display: block;
+}
+.obstacles4 {
+  background-image: url("./images/bomb.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 3px;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: var(--finalX3);
+  top: var(--finalY3);
+  transition: all var(--obstacles-speed) linear;
+  display: block;
+}
+.obstacles5 {
+  background-image: url("./images/bomb.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 3px;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: var(--finalX4);
+  top: var(--finalY4);
+  transition: all var(--obstacles-speed) linear;
+  display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.portal {
+  height: var(--main-size);
+  height: var(--main-size);
+  -webkit-box-shadow: inset 0px 0px 6px 1px rgb(234, 194, 248);
+  -moz-box-shadow: inset 0px 0px 6px 1px rgb(234, 194, 248);
+  box-shadow: inset 0px 0px 6px 1px rgb(234, 194, 248);
+  border-radius: 30%;
+}
+
+.obs1 {
+  height: var(--main-size);
+  height: var(--main-size);
+  border-radius: 30%;
+  background-color: rgb(0, 141, 229);
+}
+
+.obstacle {
+  background-color: rgb(131, 0, 50);
+  height: var(--main-size);
+  width: var(--main-size);
+  border-radius: 30%;
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 0;
+}
+.background-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("./images/bg-01.jpg");
+
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  z-index: -3;
+}
+
+.heart img {
+  height: 40px;
+  width: 40px;
+}
+
+.heart1 {
+  margin-right: 20px;
+}
+.heart2 {
+  margin-right: 20px;
+}
+.heart3 {
+  margin-right: 20px;
+}
+/* .flex-with-heart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+} */
+
+.logoimg {
+  height: 160px;
+  position: absolute;
+  z-index: 1;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h2 {
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+}
+
+.flexit {
+  display: flex;
+  position: relative;
+  width: 140px;
+  height: 60px;
+}
+
+.scoreit {
+  display: flex;
+
+  justify-content: center;
+
+  width: 600px;
+  height: 140px;
+  align-items: center;
+  position: relative;
+
+  /* pointer-events: none; */
+}
+
+/* .grid-change h3 {
+  color: white;
+  text-decoration: none;
+} */
+
+.heartAndGameBox {
+  display: flex;
+  position: relative;
+}
+
+.displayHidden {
+  display: none;
+}
+
+.gameBox {
+  background: transparent;
+  backdrop-filter: blur(80px);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  border-radius: 10px;
+  height: 600px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 0 50px -3px rgb(12, 37, 85);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* .obstacle1 {
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  animation: obstacle 3s linear 0s infinite alternate;
+  background-color: red;
+  top: 0;
+  left: 0;
+} */
+
+@keyframes obstacle {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 200px;
+  }
+}
+
+.heart {
+  position: absolute;
+  display: flex;
+  align-self: start;
+  height: 200px;
+  width: 200px;
+  align-items: center;
+  left: 0;
+  top: 0;
+  /* left: 10%;
+  top: 50%;
+  transform: translateY(-50%); */
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  background: transparent;
+  backdrop-filter: blur(60px);
+  justify-content: space-around;
+}
+
+.scoreContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.player1scoreit {
+  font-weight: 400;
+
+  margin-top: 20px;
+  font-size: 1.3rem;
+  color: #fdb85d;
+}
+
+.player2scoreit {
+  font-weight: 400;
+
+  margin-top: 20px;
+  font-size: 1.3rem;
+  color: rgb(0, 228, 61);
+}
+
+.player1scoreit span {
+  color: white;
+}
+
+.player2scoreit span {
+  color: white;
+}
+
+.player1score {
+  display: flex;
+
+  height: 200px;
+  width: 200px;
+  align-items: center;
+  align-self: end;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  background: transparent;
+  backdrop-filter: blur(60px);
+  justify-content: space-around;
+  flex-direction: column;
+}
+.player2score {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  width: 200px;
+  align-items: center;
+  align-self: end;
+  position: absolute;
+  right: 0;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  background: transparent;
+  backdrop-filter: blur(60px);
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.winner {
+  font-size: 3rem;
+  font-family: "Play", sans-serif;
+  color: rgb(183, 56, 56);
+  margin-top: 30px;
+  font-weight: 700;
+  animation: winner 0.5s linear 0s infinite alternate;
+}
+
+@keyframes winner {
+  0% {
+    color: #c8500a;
+  }
+  100% {
+    color: rgb(18, 236, 2);
+  }
+}
+
+.player1 {
+  color: #fdb85d;
+  font-size: 3rem;
+  font-family: "Odibee Sans", cursive;
+}
+.player2 {
+  color: rgb(0, 228, 61);
+  font-size: 3rem;
+  font-family: "Odibee Sans", cursive;
+}
+.score1 {
+  color: rgb(255, 255, 255);
+  font-size: 4rem;
+  font-family: "Odibee Sans", cursive;
+}
+.score2 {
+  color: rgb(255, 255, 255);
+  font-size: 4rem;
+  font-family: "Odibee Sans", cursive;
+}
+
+.displayShow {
+  display: block;
+}
+
+.animationAdd {
+  animation: backgroundRed 1s ease 0s;
+}
+
+.animationAddGreen {
+  animation: backgroundGreen 1s ease 0s;
+}
+
+.animateHeart {
+  animation: heart 0.6s linear 0s;
+}
+
+@keyframes heart {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes backgroundRed {
+  0% {
+    box-shadow: 10px 10px 20px rgba(249, 1, 1, 0),
+      -10px -10px 20px rgba(255, 0, 0, 0);
+  }
+  50% {
+    box-shadow: 10px 10px 20px rgba(249, 1, 1, 0.305),
+      -10px -10px 20px rgba(255, 0, 0, 0.301);
+  }
+  100% {
+    box-shadow: 10px 10px 20px rgba(249, 1, 1, 0),
+      -10px -10px 20px rgba(255, 0, 0, 0);
+  }
+}
+
+@keyframes backgroundGreen {
+  0% {
+    box-shadow: 10px 10px 20px rgba(249, 1, 1, 0),
+      -10px -10px 20px rgba(255, 0, 0, 0);
+  }
+  50% {
+    box-shadow: 10px 10px 20px rgba(29, 250, 0, 0.305),
+      -10px -10px 20px rgba(29, 250, 0, 0.301);
+  }
+  100% {
+    box-shadow: 10px 10px 20px rgba(249, 1, 1, 0),
+      -10px -10px 20px rgba(255, 0, 0, 0);
+  }
+}
+
+.basic {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+.fa-pause {
+  color: rgb(102, 119, 191);
+
+  left: 0;
+  font-size: 3.5rem;
+
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+.fa-volume-high {
+  color: rgb(102, 119, 191);
+
+  left: 0;
+  font-size: 2rem;
+
+  cursor: pointer;
+  position: relative;
+}
+
+.fa-volume-high::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 4px;
+  transform: rotate(-45deg);
+  background-color: white;
+  left: 0;
+  top: 15px;
+  display: var(--display);
+}
+
+.fa-volume-slash {
+  color: rgb(255, 255, 255);
+
+  left: 0;
+  font-size: 2rem;
+
+  cursor: pointer;
+}
+
+.fa-volume-high:hover {
+  color: rgb(54, 236, 66);
+}
+.fa-pause:hover {
+  font-size: 5rem;
+  color: rgb(54, 236, 66);
+}
+
+.bgBlur {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 15;
+  background: transparent;
+  backdrop-filter: blur(10px);
+}
+.pauseMenu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 500px;
+  background-color: rgb(48, 48, 48, 0.3);
+  z-index: 16;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pauseMenuContent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.hideIt {
+  display: none;
+}
+a {
+  text-decoration: none;
+}
+.resume {
+  width: 80%;
+  height: 14%;
+  border: 2px solid rgb(33, 128, 179);
+
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(33, 128, 179);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.save {
+  width: 80%;
+  height: 14%;
+  border: 2px solid rgb(33, 128, 179);
+
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(33, 128, 179);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.save:hover {
+  background-color: rgb(48, 48, 48, 0.3);
+  border: 1px solid rgb(33, 128, 179);
+  color: rgb(33, 128, 179);
+  width: 90%;
+  height: 20%;
+}
+
+.load {
+  width: 80%;
+  height: 14%;
+  border: 2px solid rgb(33, 128, 179);
+
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(33, 128, 179);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.load:hover {
+  background-color: rgb(48, 48, 48, 0.3);
+  border: 1px solid rgb(33, 128, 179);
+  color: rgb(33, 128, 179);
+  width: 90%;
+  height: 20%;
+}
+
+.booster {
+  height: var(--main-size);
+  width: var(--main-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./images/flash.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.boosterMega {
+  height: var(--main-size);
+  width: var(--main-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./images/potion.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.boosterTime {
+  height: var(--main-size);
+  width: var(--main-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./images/time.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.restart {
+  width: 80%;
+  height: 14%;
+
+  background-color: rgb(33, 128, 179);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.main-menu {
+  width: 78%;
+  height: 15%;
+  /* margin-top: 78px; */
+  /* background-color: rgb(145, 45, 45); */
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  background-color: rgb(236, 69, 54);
+}
+
+.main-menu a {
+  color: rgb(255, 255, 255);
+}
+
+.main-menu:hover {
+  background-color: rgb(48, 48, 48, 0.3);
+  border: 1px solid rgb(236, 69, 54);
+  color: rgb(236, 69, 54);
+  width: 90%;
+  height: 20%;
+}
+
+.div1 {
+  width: 50%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-direction: column;
+}
+.div2 {
+  width: 50%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: end;
+  gap: 15px;
+}
+
+.grid-value {
+  height: 200px;
+  width: 200px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gird-state {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px 0;
+  color: white;
+}
+.grid-state-20 {
+  background-color: rgb(33, 128, 179);
+}
+.grid-state-30 {
+  background-color: rgb(33, 128, 179);
+}
+.grid-state-40 {
+  background-color: rgb(33, 128, 179);
+}
+.grid-state-60 {
+  background-color: rgb(33, 128, 179);
+}
+.gird-state:hover {
+  background-color: rgb(48, 48, 48, 0.3);
+  border: 1px solid rgb(33, 128, 179);
+  color: rgb(33, 128, 179);
+
+  transition: all 0.3s ease 0s;
+}
+
+.grid-variable-state {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 20px;
+  position: relative;
+}
+.grid-variable-state-menu {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 13.33px;
+  position: relative;
+}
+
+.grid-menu {
+  background-color: rgb(31, 185, 167);
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 13.33px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.grid-menu:hover {
+  background: transparent;
+  color: rgb(31, 185, 167);
+  border: 1px solid rgb(31, 185, 167);
+}
+
+.grid-change {
+  position: absolute;
+  top: 6%;
+  color: rgb(33, 128, 179);
+  text-decoration: underline;
+}
+
+.pauseAndResume {
+  display: flex;
+  align-items: center;
+  padding-top: 0px;
+  gap: 20px;
+  flex-direction: column;
+  width: 50%;
+  padding: 20px 0;
+}
+
+.restart:hover {
+  background-color: rgb(48, 48, 48, 0.3);
+  border: 1px solid rgb(33, 128, 179);
+  color: rgb(33, 128, 179);
+  width: 90%;
+  height: 20%;
+}
+
+.resume:hover {
+  background-color: rgb(48, 48, 48, 0.3);
+  border: 1px solid rgb(33, 128, 179);
+  color: rgb(33, 128, 179);
+  width: 90%;
+  height: 20%;
+}
+
+.timer {
+  font-family: "Orbitron", sans-serif;
+  color: white;
+  font-weight: 300;
+  font-size: 3rem;
+  width: 76px;
+
+  justify-self: center;
+}
+.score {
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+.life {
+  height: 30px;
+  width: 200px;
+  background-color: rgb(50, 50, 50);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
+  display: flex;
+
+  justify-content: space-evenly;
+
+  /* align-items: center; */
+}
+
+/* img {
+  margin-top: 10px;
+  height: 20px;
+} */
+
+.threelivesover {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  width: 600px;
+  background-color: rgb(0, 25, 47, 0);
+  z-index: 16;
+  border-radius: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-family: "Play", sans-serif;
+
+  flex-direction: column;
+}
+.gameover {
+  font-size: 4.5em;
+  color: rgb(183, 56, 56);
+  font-weight: 700;
+  margin-top: 40px;
+}
+.gameover span {
+  animation: flip 2s infinite;
+  animation-delay: calc(0.2s * var(--i));
+}
+
+span {
+  color: rgb(183, 56, 56);
+  position: relative;
+  display: inline-block;
+
+  text-transform: uppercase;
+}
+@keyframes flip {
+  0%,
+  80% {
+    transform: rotateY(360deg);
+  }
+}
+
+.hideMe {
+  display: none;
+}
+
+@keyframes yourscore {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+.restartit {
+  font-weight: 400;
+  color: white;
+  margin-top: 50px;
+  letter-spacing: 3px;
+  font-size: 1.5rem;
+}
+
+.game-container {
+  height: 600px;
+  width: 600px;
+  background: transparent;
+  display: grid;
+  grid-template: var(--grid-template);
+  flex-shrink: 0;
+}
+
+.snake1 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake2 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake3 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake4 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake5 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake6 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake7 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake8 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake9 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake10 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake11 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake12 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake13 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake14 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake15 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake16 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake17 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake18 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake19 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake20 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake21 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake22 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake23 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake24 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake25 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake26 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake27 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake28 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake29 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake30 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake31 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake32 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake33 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake34 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake35 {
+  background-color: rgb(18, 236, 2);
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+
+.snake1v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake2v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake3v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake4v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake5v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake6v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake7v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake8v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake9v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake10v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake11v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake12v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake13v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake14v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake15v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake16v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake17v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake18v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake19v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake20v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake21v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake22v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake23v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake24v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake25v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake26v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake27v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake28v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake29v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake30v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake31v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake32v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake33v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake34v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.snake35v {
+  background-color: #ffa65b;
+  border-radius: 30%;
+  position: absolute;
+  height: var(--main-size);
+  width: var(--main-size);
+  left: none;
+  top: none;
+  transition: all var(--speed) linear;
+}
+.food {
+  background-color: orange;
+  border-radius: 50%;
+}
+
+.hideSnake {
+  display: none;
+}
+
+.headsnake {
+  background-color: rgb(1, 92, 25) !important;
+  height: var(--main-size);
+  width: var(--main-size);
+  border-radius: 3px;
+  position: absolute;
+  left: var(--initialX);
+  top: var(--initialY);
+  transition: all var(--speed) linear;
+  animation: headsnake 3s linear infinite;
+}
+
+.headsnakev {
+  background-color: #c8500a !important;
+  height: var(--main-size);
+  width: var(--main-size);
+  border-radius: 3px;
+  position: absolute;
+  left: var(--initialXv);
+  top: var(--initialYv);
+  transition: all var(--speed) linear;
+}
+
+@keyframes headsnake {
+  0% {
+    background-color: rgb(222, 93, 6);
+  }
+  100% {
+    background-color: rgb(0, 141, 38);
+  }
+}
+
+.mobilemsg {
+  display: none;
+}
+
+.sequence {
+  height: 50px;
+  width: 600px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  margin-top: 20px;
+  display: grid;
+  justify-content: center;
+
+  align-items: center;
+}
+
+.target {
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  justify-self: center;
+  align-self: center;
+  border-radius: 5px;
+  transition: all ease;
+}
+
+.snakeRed {
+  background-color: rgb(153, 0, 0);
+
+  border-radius: 3px;
+  transition: all ease;
+}
+
+.haveBorder {
+  box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.4);
+}
+
+.right {
+  display: none;
+  position: absolute;
+  top: 75%;
+  right: 24%;
+}
+.right img {
+  height: 65px;
+}
+.left {
+  display: none;
+  position: absolute;
+
+  top: 75%;
+  left: 24%;
+}
+.left img {
+  height: 65px;
+  transform: rotate(180deg);
+}
+.up {
+  display: none;
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.up img {
+  height: 65px;
+  transform: rotate(-90deg);
+}
+.down {
+  display: none;
+  position: absolute;
+  top: 83%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.down img {
+  height: 65px;
+  transform: rotate(90deg);
+}
+
+.circle {
+  display: none;
+  height: 65px;
+  width: 65px;
+  border-radius: 10px;
+  background: rgb(29, 29, 29);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 75.2%;
+}
+
+.irotateMobile .fa-solid {
+  position: absolute;
+  /* right: 39.5%;
+  top: 9.5%; */
+
+  font-size: 2.5rem;
+}
+
+.irotateMobile {
+  cursor: pointer;
+  z-index: 10;
+  color: white;
+}
+
+.irotatePc .fa-solid {
+  font-size: 0rem;
+}
+
+/* .shrinkLetter {
+  font-size: 0;
+} */
+
+.irotatePc {
+  cursor: pointer;
+  z-index: 10;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: block;
+}
+
+.hiddenit {
+  display: none;
+}
+
+.hiddenLetter {
+  display: none;
+  font-size: 0;
+}
+
+.letterBlock {
+  height: var(--main-size);
+  width: var(--main-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: var(--main-size);
+}
+
+.seqLetter {
+  font-size: 1.5rem;
+}
+
+.targetLetter {
+  font-size: 100%;
+  justify-self: center;
+}
+
+.letter {
+  font-size: 100%;
+  height: var(--main-size);
+}
+
+.greenLetter {
+  font-size: 0;
+  color: green;
+}
+
+.redLetter {
+  color: red;
+}
+.HighScore {
+  margin-bottom: 30px;
+}
+/* .Controls {
+  height: 400px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.069);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10%;
+} */
+
+@media only screen and (max-width: 1000px) {
+  .background-container {
+    display: none;
+  }
+  .mobilemsg {
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+  }
+}
