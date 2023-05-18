@@ -179,7 +179,7 @@
 .pauseAndResume h3 {
   font-weight: 500;
   font-family: "Orbitron", sans-serif;
-  color: rgb(207, 166, 179);
+  color: rgb(241, 241, 241);
 }
 
 h2 {
@@ -551,6 +551,7 @@ a {
 
 .main-menu a {
   color: rgb(255, 255, 255);
+  z-index: 100;
 }
 
 .main-menu:hover {
