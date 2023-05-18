@@ -578,19 +578,7 @@ const portalDrop = () => {
   console.log(portals);
 };
 
-// const boosterTimeRandomPosition = () => {
-//   for (let i = 0; i < 1; i++) {
-//     speedBoosterTimeX = Math.floor(Math.random() * gridX) + 1;
-//     speedBoosterTimeY = Math.floor(Math.random() * gridY) + 1;
-//     if (
-//       arrayOfLetters.includes([speedBoosterTimeY, speedBoosterTimeX]) &&
-//       speedBoosterTimeX === speedBoosterX &&
-//       speedBoosterTimeY === speedBoosterY
-//     ) {
-//       i--;
-//     }
-//   }
-// };
+
 
 let startedTimer = true;
 document.addEventListener("keydown", (event) => {
@@ -720,99 +708,7 @@ document.addEventListener("keydown", (event) => {
 let timerBool = false;
 let timerr;
 
-///
-// var gesuredZone = document.querySelector(".background-container");
-// let touchstartX = 0;
-// let touchstartY = 0;
-// let touchendX = 0;
-// let touchendY = 0;
-// gesuredZone.addEventListener(
-//   "touchstart",
-//   function (event) {
-//     bgMusic.volume = 0.23;
-//     touchstartX = event.changedTouches[0].screenX;
-//     touchstartY = event.changedTouches[0].screenY;
-//     console.log(touchstartX);
-//     console.log("started");
-//     started = true;
-//     bgMusic.play();
-//     event.preventDefault();
-//     if (event.target.classList.contains(".fa-circle.pause")) {
-//       clearInterval(timerr);
-//       clickSoundEffect.play();
-//       document.querySelector(".bgBlur").classList.remove("hideIt");
-//       document.querySelector(".pauseMenu").classList.remove("hideIt");
-//       bgMusic.pause();
-//       velocityX = 0;
-//       velocityY = 0;
-//       boolforListener = false;
-//       started = false;
-//     }
-//   },
-//   false
-// );
 
-// gesuredZone.addEventListener(
-//   "touchend",
-//   function (event) {
-//     console.log("ended");
-
-//     touchendX = event.changedTouches[0].screenX;
-//     touchendY = event.changedTouches[0].screenY;
-//     console.log(touchendX);
-//     startedBoolean = true;
-//     timerBool = true;
-//     if (timerBool && boolTimer) {
-//       timerr = setInterval(timerFunction, 1000);
-//       console.log(timerr);
-//     }
-//     boolTimer = false;
-//     handleGesure();
-//     // event.preventDefault();
-//   },
-//   false
-// );
-
-// function handleGesure() {
-//   console.log("function callled");
-
-//   if (boolforListener) {
-//     console.log("boolOn");
-
-//     if (touchendX < touchstartX && velocityX !== 1) {
-//       console.log("yes x");
-
-//       velocityX = -1;
-//       velocityY = 0;
-//       if (!startedTimer) {
-//         timerr = setInterval(timerFunction, 1000);
-//       }
-//       startedTimer = true;
-//     } else if (touchendX > touchstartX && velocityX !== -1) {
-//       velocityX = 1;
-//       velocityY = 0;
-//       if (!startedTimer) {
-//         timerr = setInterval(timerFunction, 1000);
-//       }
-//       startedTimer = true;
-//     } else if (touchendY < touchstartY && velocityY !== 1) {
-//       velocityX = 0;
-//       velocityY = -1;
-//       if (!startedTimer) {
-//         timerr = setInterval(timerFunction, 1000);
-//       }
-//       startedTimer = true;
-//     } else if (touchendY > touchstartY && velocityY !== -1) {
-//       velocityX = 0;
-//       velocityY = 1;
-//       if (!startedTimer) {
-//         timerr = setInterval(timerFunction, 1000);
-//       }
-//       startedTimer = true;
-//     }
-//   }
-// }
-////
 Array.from(document.querySelectorAll(".arrowit")).forEach((ele) =>
   addEventListener("click", (event) => {
     startedBoolean = true;
