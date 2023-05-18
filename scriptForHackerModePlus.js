@@ -22,6 +22,7 @@ let arrayWords = [
   "BOTTLE",
   "MOUSE",
 ];
+
 let loadBool = true;
 let deleteBooster = [];
 let boolForBooster = false;
@@ -143,8 +144,34 @@ snakeCreator();
 let a;
 let b;
 let c;
+let bool1;
+let bool2;
+let bool3 = true;
+let bool4;
+let bool5;
+let bool6;
+let bool7 = true;
+let bool8;
 
 document.querySelector(".grid-state-20").addEventListener("click", () => {
+  numbermove1 = 0;
+  numbermove2 = 0;
+  numbermove3 = 0;
+  numbermove4 = 0;
+  numbermove5 = 0;
+  booland1 = true;
+  booland2 = true;
+  booland3 = true;
+  booland4 = true;
+  booland5 = true;
+  bool1 = true;
+  bool2 = false;
+  bool3 = false;
+  bool4 = false;
+  bool5 = false;
+  bool6 = false;
+  bool7 = false;
+  bool8 = false;
   diagNumber = 4;
   horiNumber = 6;
   vertiNumber = 5;
@@ -168,6 +195,24 @@ document.querySelector(".grid-state-20").addEventListener("click", () => {
   startedTimer = false;
 });
 document.querySelector(".grid-state-30").addEventListener("click", () => {
+  numbermove1 = 0;
+  numbermove2 = 0;
+  numbermove3 = 0;
+  numbermove4 = 0;
+  numbermove5 = 0;
+  booland1 = true;
+  booland2 = true;
+  booland3 = true;
+  booland4 = true;
+  booland5 = true;
+  bool1 = false;
+  bool2 = true;
+  bool3 = false;
+  bool4 = false;
+  bool5 = false;
+  bool6 = false;
+  bool7 = false;
+  bool8 = false;
   diagNumber = 5;
   horiNumber = 7;
   vertiNumber = 6;
@@ -192,6 +237,24 @@ document.querySelector(".grid-state-30").addEventListener("click", () => {
 });
 
 document.querySelector(".grid-state-40").addEventListener("click", () => {
+  numbermove1 = 0;
+  numbermove2 = 0;
+  numbermove3 = 0;
+  numbermove4 = 0;
+  numbermove5 = 0;
+  booland1 = true;
+  booland2 = true;
+  booland3 = true;
+  booland4 = true;
+  booland5 = true;
+  bool1 = false;
+  bool2 = false;
+  bool3 = true;
+  bool4 = false;
+  bool5 = false;
+  bool6 = false;
+  bool7 = false;
+  bool8 = false;
   diagNumber = 6;
   horiNumber = 8;
   vertiNumber = 7;
@@ -215,6 +278,24 @@ document.querySelector(".grid-state-40").addEventListener("click", () => {
   startedTimer = false;
 });
 document.querySelector(".grid-state-60").addEventListener("click", () => {
+  numbermove1 = 0;
+  numbermove2 = 0;
+  numbermove3 = 0;
+  numbermove4 = 0;
+  numbermove5 = 0;
+  booland1 = true;
+  booland2 = true;
+  booland3 = true;
+  booland4 = true;
+  booland5 = true;
+  bool1 = false;
+  bool2 = false;
+  bool3 = false;
+  bool4 = true;
+  bool5 = false;
+  bool6 = false;
+  bool7 = false;
+  bool8 = false;
   diagNumber = 7;
   horiNumber = 9;
   vertiNumber = 8;
@@ -239,6 +320,14 @@ document.querySelector(".grid-state-60").addEventListener("click", () => {
 });
 
 document.querySelector(".grid-state-menu-20").addEventListener("click", () => {
+  bool1 = false;
+  bool2 = false;
+  bool3 = false;
+  bool4 = false;
+  bool5 = true;
+  bool6 = false;
+  bool7 = false;
+  bool8 = false;
   // numberReverse = 3;
   // addObs();
   // removeObs();
@@ -281,6 +370,14 @@ document.querySelector(".grid-state-menu-20").addEventListener("click", () => {
   clickSoundEffect.play();
 });
 document.querySelector(".grid-state-menu-30").addEventListener("click", () => {
+  bool1 = false;
+  bool2 = false;
+  bool3 = false;
+  bool4 = false;
+  bool5 = false;
+  bool6 = true;
+  bool7 = false;
+  bool8 = false;
   // numberReverse = 4;
   // addObs();
   // removeObs();
@@ -324,6 +421,14 @@ document.querySelector(".grid-state-menu-30").addEventListener("click", () => {
 });
 
 document.querySelector(".grid-state-menu-40").addEventListener("click", () => {
+  bool1 = false;
+  bool2 = false;
+  bool3 = false;
+  bool4 = false;
+  bool5 = false;
+  bool6 = false;
+  bool7 = true;
+  bool8 = false;
   // numberReverse = 5;
   // addObs();
   // removeObs();
@@ -367,6 +472,14 @@ document.querySelector(".grid-state-menu-40").addEventListener("click", () => {
   clickSoundEffect.play();
 });
 document.querySelector(".grid-state-menu-60").addEventListener("click", () => {
+  bool1 = false;
+  bool2 = false;
+  bool3 = false;
+  bool4 = false;
+  bool5 = false;
+  bool6 = false;
+  bool7 = false;
+  bool8 = true;
   // numberReverse = 0;
   // addObs();
   // removeObs();
@@ -580,8 +693,35 @@ document.addEventListener("keydown", (event) => {
 
 let timerBool = false;
 let timerr;
-Array.from(document.querySelectorAll(".arrowit")).forEach((ele) =>
-  addEventListener("click", (event) => {
+
+///
+var gesuredZone = document.querySelector(".background-container");
+let touchstartX = 0;
+let touchstartY = 0;
+let touchendX = 0;
+let touchendY = 0;
+gesuredZone.addEventListener(
+  "touchstart",
+  function (event) {
+    bgMusic.volume = 0.23;
+    touchstartX = event.changedTouches[0].screenX;
+    touchstartY = event.changedTouches[0].screenY;
+    console.log(touchstartX);
+    console.log("started");
+    started = true;
+    bgMusic.play();
+  },
+  false
+);
+
+gesuredZone.addEventListener(
+  "touchend",
+  function (event) {
+    console.log("ended");
+
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
+    console.log(touchendX);
     startedBoolean = true;
     timerBool = true;
     if (timerBool && boolTimer) {
@@ -589,61 +729,115 @@ Array.from(document.querySelectorAll(".arrowit")).forEach((ele) =>
       console.log(timerr);
     }
     boolTimer = false;
-
-    if (
-      event.target.classList.contains("clickup") ||
-      event.target.classList.contains("clickdown") ||
-      event.target.classList.contains("clickright") ||
-      event.target.classList.contains("clickleft")
-    ) {
-      started = true;
-      bgMusic.play();
-      bgMusic.volume = 0.23;
-    }
-    console.log("hi");
-
-    if (boolforListener) {
-      if (event.target.classList.contains("clickup") && velocityY !== 1) {
-        velocityX = 0;
-        velocityY = -1;
-        if (!startedTimer) {
-          timerr = setInterval(timerFunction, 1000);
-        }
-        startedTimer = true;
-      } else if (
-        event.target.classList.contains("clickdown") &&
-        velocityY !== -1
-      ) {
-        velocityX = 0;
-        velocityY = 1;
-        if (!startedTimer) {
-          timerr = setInterval(timerFunction, 1000);
-        }
-        startedTimer = true;
-      } else if (
-        event.target.classList.contains("clickright") &&
-        velocityX !== -1
-      ) {
-        velocityX = 1;
-        velocityY = 0;
-        if (!startedTimer) {
-          timerr = setInterval(timerFunction, 1000);
-        }
-        startedTimer = true;
-      } else if (
-        event.target.classList.contains("clickleft") &&
-        velocityX !== 1
-      ) {
-        velocityX = -1;
-        velocityY = 0;
-        if (!startedTimer) {
-          timerr = setInterval(timerFunction, 1000);
-        }
-        startedTimer = true;
-      }
-    }
-  })
+    handleGesure();
+  },
+  false
 );
+
+function handleGesure() {
+  console.log("function callled");
+
+  if (boolforListener) {
+    console.log("boolOn");
+
+    if (touchendX < touchstartX && velocityX !== 1) {
+      console.log("yes x");
+
+      velocityX = -1;
+      velocityY = 0;
+      if (!startedTimer) {
+        timerr = setInterval(timerFunction, 1000);
+      }
+      startedTimer = true;
+    } else if (touchendX > touchstartX && velocityX !== -1) {
+      velocityX = 1;
+      velocityY = 0;
+      if (!startedTimer) {
+        timerr = setInterval(timerFunction, 1000);
+      }
+      startedTimer = true;
+    } else if (touchendY < touchstartY && velocityY !== 1) {
+      velocityX = 0;
+      velocityY = -1;
+      if (!startedTimer) {
+        timerr = setInterval(timerFunction, 1000);
+      }
+      startedTimer = true;
+    } else if (touchendY > touchstartY && velocityY !== -1) {
+      velocityX = 0;
+      velocityY = 1;
+      if (!startedTimer) {
+        timerr = setInterval(timerFunction, 1000);
+      }
+      startedTimer = true;
+    }
+  }
+}
+////
+// Array.from(document.querySelectorAll(".arrowit")).forEach((ele) =>
+//   addEventListener("click", (event) => {
+//     startedBoolean = true;
+//     timerBool = true;
+//     if (timerBool && boolTimer) {
+//       timerr = setInterval(timerFunction, 1000);
+//       console.log(timerr);
+//     }
+//     boolTimer = false;
+
+//     if (
+//       event.target.classList.contains("clickup") ||
+//       event.target.classList.contains("clickdown") ||
+//       event.target.classList.contains("clickright") ||
+//       event.target.classList.contains("clickleft")
+//     ) {
+//       started = true;
+//       bgMusic.play();
+//       bgMusic.volume = 0.23;
+//     }
+//     console.log("hi");
+
+//     if (boolforListener) {
+//       if (event.target.classList.contains("clickup") && velocityY !== 1) {
+//         velocityX = 0;
+//         velocityY = -1;
+//         if (!startedTimer) {
+//           timerr = setInterval(timerFunction, 1000);
+//         }
+//         startedTimer = true;
+//       } else if (
+//         event.target.classList.contains("clickdown") &&
+//         velocityY !== -1
+//       ) {
+//         velocityX = 0;
+//         velocityY = 1;
+//         if (!startedTimer) {
+//           timerr = setInterval(timerFunction, 1000);
+//         }
+//         startedTimer = true;
+//       } else if (
+//         event.target.classList.contains("clickright") &&
+//         velocityX !== -1
+//       ) {
+//         velocityX = 1;
+//         velocityY = 0;
+//         if (!startedTimer) {
+//           timerr = setInterval(timerFunction, 1000);
+//         }
+//         startedTimer = true;
+//       } else if (
+//         event.target.classList.contains("clickleft") &&
+//         velocityX !== 1
+//       ) {
+//         velocityX = -1;
+//         velocityY = 0;
+//         if (!startedTimer) {
+//           timerr = setInterval(timerFunction, 1000);
+//         }
+//         startedTimer = true;
+//       }
+//     }
+//   })
+// );
 
 pauseButtonSelector.addEventListener("click", (event) => {
   clearInterval(megaObs);
@@ -941,7 +1135,30 @@ placeObstacles();
 let d;
 let velocityXofObs1 = 0;
 let velocityYofObs1 = 0;
+
 const gameLoad = () => {
+  if (window.matchMedia("(max-width: 600px)").matches) {
+    if (bool1) {
+      gridMultiplier = 17.5;
+    } else if (bool2) {
+      gridMultiplier = 11.6666667;
+    } else if (bool3) {
+      gridMultiplier = 8.75;
+    } else if (bool4) {
+      gridMultiplier = 5.83333333;
+    }
+  } else {
+    if (bool5) {
+      gridMultiplier = 30;
+    } else if (bool6) {
+      gridMultiplier = 20;
+    } else if (bool7) {
+      gridMultiplier = 15;
+    } else if (bool8) {
+      gridMultiplier = 10;
+    }
+  }
+
   snakeX += velocityX;
   snakeY += velocityY;
   htmlSelector = ``;
@@ -2378,7 +2595,7 @@ document.querySelector(".save").addEventListener("click", (event) => {
     obstacle2Y: obstacle2Y,
     obstacle3X: obstacle3X,
     obstacle3Y: obstacle3Y,
-  
+
     boolagain: boolagain,
     vel_obstacle1X: vel_obstacle1X,
     vel_obstacle1Y: vel_obstacle1Y,
@@ -2459,7 +2676,7 @@ const loadState = () => {
     horiNumber = GameSafe.horiNumber;
     vertiNumber = GameSafe.vertiNumber;
     abcda = GameSafe.abcda;
- 
+
     portalX = GameSafe.portalX;
     portalY = GameSafe.portalY;
     portals = GameSafe.portals;
