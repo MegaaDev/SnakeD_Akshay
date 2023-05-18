@@ -194,6 +194,28 @@ document.querySelector(".grid-state-20").addEventListener("click", () => {
   clearInterval(timerr);
   startedTimer = false;
 });
+
+document.querySelector(".restart-icon").addEventListener("click", () => {
+  clearInterval(timerr);
+  startedTimer = false;
+
+  startedBoolean = false;
+
+  clickSoundEffect.play();
+  console.log(timerr);
+
+  bgMusic.currentTime = 0;
+
+  resetAllReloadNoAudio();
+  document.querySelector(".bgBlur").classList.add("hideIt");
+  document.querySelector(".threelivesover").classList.add("hideMe");
+  megaObs = setInterval(MovingObstacleLoad, 200);
+
+  bgMusic.play();
+  resetAllReloadNoAudio();
+  boolforListener = true;
+  started = true;
+});
 document.querySelector(".grid-state-30").addEventListener("click", () => {
   numbermove1 = 0;
   numbermove2 = 0;
@@ -572,6 +594,7 @@ const portalDrop = () => {
 
 let startedTimer = true;
 document.addEventListener("keydown", (event) => {
+  event.preventDefault();
   timerBool = true;
   if (timerBool && boolTimer) {
     timerr = setInterval(timerFunction, 1000);
@@ -618,6 +641,9 @@ document.addEventListener("keydown", (event) => {
   }
 
   if (event.key == "Escape") {
+    if (document.querySelector(".save").classList.contains("megaSave")) {
+      document.querySelector(".save").classList.remove("megaSave");
+    }
     clearInterval(megaObs);
     clearInterval(timerr);
     clickSoundEffect.play();
@@ -695,87 +721,45 @@ let timerBool = false;
 let timerr;
 
 ///
-var gesuredZone = document.querySelector(".background-container");
-let touchstartX = 0;
-let touchstartY = 0;
-let touchendX = 0;
-let touchendY = 0;
-gesuredZone.addEventListener(
-  "touchstart",
-  function (event) {
-    bgMusic.volume = 0.23;
-    touchstartX = event.changedTouches[0].screenX;
-    touchstartY = event.changedTouches[0].screenY;
-    console.log(touchstartX);
-    console.log("started");
-    started = true;
-    bgMusic.play();
-  },
-  false
-);
+// var gesuredZone = document.querySelector(".background-container");
+// let touchstartX = 0;
+// let touchstartY = 0;
+// let touchendX = 0;
+// let touchendY = 0;
+// gesuredZone.addEventListener(
+//   "touchstart",
+//   function (event) {
+//     bgMusic.volume = 0.23;
+//     touchstartX = event.changedTouches[0].screenX;
+//     touchstartY = event.changedTouches[0].screenY;
+//     console.log(touchstartX);
+//     console.log("started");
+//     started = true;
+//     bgMusic.play();
+//     event.preventDefault();
+//     if (event.target.classList.contains(".fa-circle.pause")) {
+//       clearInterval(timerr);
+//       clickSoundEffect.play();
+//       document.querySelector(".bgBlur").classList.remove("hideIt");
+//       document.querySelector(".pauseMenu").classList.remove("hideIt");
+//       bgMusic.pause();
+//       velocityX = 0;
+//       velocityY = 0;
+//       boolforListener = false;
+//       started = false;
+//     }
+//   },
+//   false
+// );
 
-gesuredZone.addEventListener(
-  "touchend",
-  function (event) {
-    console.log("ended");
+// gesuredZone.addEventListener(
+//   "touchend",
+//   function (event) {
+//     console.log("ended");
 
-    touchendX = event.changedTouches[0].screenX;
-    touchendY = event.changedTouches[0].screenY;
-    console.log(touchendX);
-    startedBoolean = true;
-    timerBool = true;
-    if (timerBool && boolTimer) {
-      timerr = setInterval(timerFunction, 1000);
-      console.log(timerr);
-    }
-    boolTimer = false;
-    handleGesure();
-  },
-  false
-);
-
-function handleGesure() {
-  console.log("function callled");
-
-  if (boolforListener) {
-    console.log("boolOn");
-
-    if (touchendX < touchstartX && velocityX !== 1) {
-      console.log("yes x");
-
-      velocityX = -1;
-      velocityY = 0;
-      if (!startedTimer) {
-        timerr = setInterval(timerFunction, 1000);
-      }
-      startedTimer = true;
-    } else if (touchendX > touchstartX && velocityX !== -1) {
-      velocityX = 1;
-      velocityY = 0;
-      if (!startedTimer) {
-        timerr = setInterval(timerFunction, 1000);
-      }
-      startedTimer = true;
-    } else if (touchendY < touchstartY && velocityY !== 1) {
-      velocityX = 0;
-      velocityY = -1;
-      if (!startedTimer) {
-        timerr = setInterval(timerFunction, 1000);
-      }
-      startedTimer = true;
-    } else if (touchendY > touchstartY && velocityY !== -1) {
-      velocityX = 0;
-      velocityY = 1;
-      if (!startedTimer) {
-        timerr = setInterval(timerFunction, 1000);
-      }
-      startedTimer = true;
-    }
-  }
-}
-////
-// Array.from(document.querySelectorAll(".arrowit")).forEach((ele) =>
-//   addEventListener("click", (event) => {
+//     touchendX = event.changedTouches[0].screenX;
+//     touchendY = event.changedTouches[0].screenY;
+//     console.log(touchendX);
 //     startedBoolean = true;
 //     timerBool = true;
 //     if (timerBool && boolTimer) {
@@ -783,63 +767,122 @@ function handleGesure() {
 //       console.log(timerr);
 //     }
 //     boolTimer = false;
-
-//     if (
-//       event.target.classList.contains("clickup") ||
-//       event.target.classList.contains("clickdown") ||
-//       event.target.classList.contains("clickright") ||
-//       event.target.classList.contains("clickleft")
-//     ) {
-//       started = true;
-//       bgMusic.play();
-//       bgMusic.volume = 0.23;
-//     }
-//     console.log("hi");
-
-//     if (boolforListener) {
-//       if (event.target.classList.contains("clickup") && velocityY !== 1) {
-//         velocityX = 0;
-//         velocityY = -1;
-//         if (!startedTimer) {
-//           timerr = setInterval(timerFunction, 1000);
-//         }
-//         startedTimer = true;
-//       } else if (
-//         event.target.classList.contains("clickdown") &&
-//         velocityY !== -1
-//       ) {
-//         velocityX = 0;
-//         velocityY = 1;
-//         if (!startedTimer) {
-//           timerr = setInterval(timerFunction, 1000);
-//         }
-//         startedTimer = true;
-//       } else if (
-//         event.target.classList.contains("clickright") &&
-//         velocityX !== -1
-//       ) {
-//         velocityX = 1;
-//         velocityY = 0;
-//         if (!startedTimer) {
-//           timerr = setInterval(timerFunction, 1000);
-//         }
-//         startedTimer = true;
-//       } else if (
-//         event.target.classList.contains("clickleft") &&
-//         velocityX !== 1
-//       ) {
-//         velocityX = -1;
-//         velocityY = 0;
-//         if (!startedTimer) {
-//           timerr = setInterval(timerFunction, 1000);
-//         }
-//         startedTimer = true;
-//       }
-//     }
-//   })
+//     handleGesure();
+//     // event.preventDefault();
+//   },
+//   false
 // );
 
+// function handleGesure() {
+//   console.log("function callled");
+
+//   if (boolforListener) {
+//     console.log("boolOn");
+
+//     if (touchendX < touchstartX && velocityX !== 1) {
+//       console.log("yes x");
+
+//       velocityX = -1;
+//       velocityY = 0;
+//       if (!startedTimer) {
+//         timerr = setInterval(timerFunction, 1000);
+//       }
+//       startedTimer = true;
+//     } else if (touchendX > touchstartX && velocityX !== -1) {
+//       velocityX = 1;
+//       velocityY = 0;
+//       if (!startedTimer) {
+//         timerr = setInterval(timerFunction, 1000);
+//       }
+//       startedTimer = true;
+//     } else if (touchendY < touchstartY && velocityY !== 1) {
+//       velocityX = 0;
+//       velocityY = -1;
+//       if (!startedTimer) {
+//         timerr = setInterval(timerFunction, 1000);
+//       }
+//       startedTimer = true;
+//     } else if (touchendY > touchstartY && velocityY !== -1) {
+//       velocityX = 0;
+//       velocityY = 1;
+//       if (!startedTimer) {
+//         timerr = setInterval(timerFunction, 1000);
+//       }
+//       startedTimer = true;
+//     }
+//   }
+// }
+////
+Array.from(document.querySelectorAll(".arrowit")).forEach((ele) =>
+  addEventListener("click", (event) => {
+    startedBoolean = true;
+    timerBool = true;
+    event.preventDefault();
+    if (timerBool && boolTimer) {
+      timerr = setInterval(timerFunction, 1000);
+      console.log(timerr);
+    }
+    boolTimer = false;
+
+    if (
+      event.target.classList.contains("clickup") ||
+      event.target.classList.contains("clickdown") ||
+      event.target.classList.contains("clickright") ||
+      event.target.classList.contains("clickleft")
+    ) {
+      started = true;
+      bgMusic.play();
+      bgMusic.volume = 0.23;
+    }
+    console.log("hi");
+
+    if (boolforListener) {
+      if (event.target.classList.contains("clickup") && velocityY !== 1) {
+        velocityX = 0;
+        velocityY = -1;
+        if (!startedTimer) {
+          timerr = setInterval(timerFunction, 1000);
+        }
+        startedTimer = true;
+      } else if (
+        event.target.classList.contains("clickdown") &&
+        velocityY !== -1
+      ) {
+        velocityX = 0;
+        velocityY = 1;
+        if (!startedTimer) {
+          timerr = setInterval(timerFunction, 1000);
+        }
+        startedTimer = true;
+      } else if (
+        event.target.classList.contains("clickright") &&
+        velocityX !== -1
+      ) {
+        velocityX = 1;
+        velocityY = 0;
+        if (!startedTimer) {
+          timerr = setInterval(timerFunction, 1000);
+        }
+        startedTimer = true;
+      } else if (
+        event.target.classList.contains("clickleft") &&
+        velocityX !== 1
+      ) {
+        velocityX = -1;
+        velocityY = 0;
+        if (!startedTimer) {
+          timerr = setInterval(timerFunction, 1000);
+        }
+        startedTimer = true;
+      }
+    }
+  })
+);
+
 pauseButtonSelector.addEventListener("click", (event) => {
+  if (document.querySelector(".save").classList.contains("megaSave")) {
+    document.querySelector(".save").classList.remove("megaSave");
+  }
   clearInterval(megaObs);
   clearInterval(timerr);
   clickSoundEffect.play();
@@ -2491,7 +2534,7 @@ let megaObs = setInterval(MovingObstacleLoad, 200);
 let localStorageObject;
 document.querySelector(".save").addEventListener("click", (event) => {
   console.log(event.target.classList);
-
+  document.querySelector(".save").classList.add("megaSave");
   console.log("clickedmeee");
 
   localStorageObject = {
@@ -2531,7 +2574,6 @@ document.querySelector(".save").addEventListener("click", (event) => {
     heartNumber: heartNumber,
     headBoolean: headBoolean,
     ReloadGameNumber: ReloadGameNumber,
-    highScore: highScore,
     boolForBoosterMega: boolForBoosterMega,
     speedBoosterMegaX: speedBoosterMegaX,
     speedBoosterMegaY: speedBoosterMegaY,
@@ -2608,10 +2650,23 @@ document.querySelector(".save").addEventListener("click", (event) => {
     numbermove3: numbermove3,
   };
   localStorage.setItem("save-state", JSON.stringify(localStorageObject));
+  clickSoundEffect.play();
 });
 
 document.querySelector(".load").addEventListener("click", () => {
   loadState();
+  megaObs = setInterval(MovingObstacleLoad, 200);
+  clickSoundEffect.play();
+  boolforListener = true;
+  document.querySelector(".bgBlur").classList.add("hideIt");
+  document.querySelector(".pauseMenu").classList.add("hideIt");
+  for (let i = arrayFollow.length; i < 36; i++) {
+    if (!document.querySelector(`.snake${i}`).classList.contains("headSnake")) {
+      document.querySelector(`.snake${i}`).classList.add("hideSnake");
+    }
+  }
+  // started = true;
+  timerr = setInterval(timerFunction, 1000);
 });
 
 let GameSafe;
@@ -2647,7 +2702,6 @@ const loadState = () => {
     heartNumber = GameSafe.heartNumber;
     headBoolean = GameSafe.headBoolean;
     ReloadGameNumber = GameSafe.ReloadGameNumber;
-    highScore = GameSafe.highScore;
     boolForBoosterMega = GameSafe.boolForBoosterMega;
     speedBoosterMegaX = GameSafe.speedBoosterMegaX;
     speedBoosterMegaY = GameSafe.speedBoosterMegaY;
