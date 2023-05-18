@@ -2378,7 +2378,7 @@ document.querySelector(".save").addEventListener("click", (event) => {
     obstacle2Y: obstacle2Y,
     obstacle3X: obstacle3X,
     obstacle3Y: obstacle3Y,
-    numbermove: numbermove,
+  
     boolagain: boolagain,
     vel_obstacle1X: vel_obstacle1X,
     vel_obstacle1Y: vel_obstacle1Y,
@@ -2494,7 +2494,7 @@ const loadState = () => {
     obstacle2Y = GameSafe.obstacle2Y;
     obstacle3X = GameSafe.obstacle3X;
     obstacle3Y = GameSafe.obstacle3Y;
-    numbermove = GameSafe.numbermove;
+
     boolagain = GameSafe.boolagain;
     vel_obstacle1X = GameSafe.vel_obstacle1X;
     vel_obstacle1Y = GameSafe.vel_obstacle1Y;
