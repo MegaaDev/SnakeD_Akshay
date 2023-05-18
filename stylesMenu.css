@@ -280,61 +280,44 @@ img {
   margin-top: 20px;
 }
 
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 550px) {
   .container {
-    height: 400px;
-    width: 300px;
+    height: 187.5px;
+    width: 150px;
+    margin-top: 0;
   }
   h2 {
     text-align: center;
+    font-size: 0.5rem;
+    margin: 0;
   }
-  .image-container2 {
-    background-position: center;
-  }
-  .content-hacker-mode {
-    margin-top: 17px;
-  }
-}
-@media only screen and (max-width: 655px) {
-  .container {
-    height: 300px;
-    width: 200px;
-  }
-  .click a {
-    font-size: 1rem;
-  }
-  li {
-    font-size: 0.4rem;
-  }
-  h2 {
-    font-size: 1rem;
-  }
-}
-@media only screen and (max-width: 565px) {
-  .background-container {
-    gap: 5px;
-  }
-  .container {
-    height: 300px;
-    width: 200px;
-  }
-  img {
-    height: 200px;
-  }
-  img {
-    margin-top: 50px;
-  }
-}
 
-@media only screen and (max-width: 565px) {
   .background-container {
-    gap: 5px;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
   }
-  .container {
-    height: 250px;
-    width: 150px;
+  img {
+    height: 180px;
+    width: 180px;
   }
-  .background-container {
-    gap: 15px;
+  .container1 {
+    margin-top: 170px;
+    margin-right: 150px;
+  }
+  .container2 {
+    margin-right: 150px;
+  }
+  .container3 {
+    margin-left: 150px;
+  }
+  ul {
+    font-size: 0.35rem;
+  }
+  .click {
+    font-size: 0.8rem;
+  }
+  .click1 {
+    font-size: 0.8rem;
   }
 }
