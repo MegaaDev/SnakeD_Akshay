@@ -713,7 +713,7 @@ Array.from(document.querySelectorAll(".arrowit")).forEach((ele) =>
   addEventListener("click", (event) => {
     startedBoolean = true;
     timerBool = true;
-    event.preventDefault();
+   
     if (timerBool && boolTimer) {
       timerr = setInterval(timerFunction, 1000);
       console.log(timerr);
