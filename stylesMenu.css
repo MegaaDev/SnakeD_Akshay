@@ -321,3 +321,9 @@ img {
     font-size: 0.8rem;
   }
 }
+@media only screen and (max-height: 710px) {
+  ul {
+    font-size: 0.25rem;
+    line-height: 6px;
+  }
+}
