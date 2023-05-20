@@ -792,6 +792,7 @@ pauseButtonSelector.addEventListener("click", (event) => {
 });
 
 mobilePauseSelector.addEventListener("click", (event) => {
+   clearInterval(megaObs);
   clearInterval(timerr);
   clickSoundEffect.play();
   document.querySelector(".bgBlur").classList.remove("hideIt");
@@ -804,6 +805,7 @@ mobilePauseSelector.addEventListener("click", (event) => {
 });
 
 resumeButtonSelector.addEventListener("click", (event) => {
+  
   megaObs = setInterval(MovingObstacleLoad, 200);
   clickSoundEffect.play();
   boolforListener = true;
