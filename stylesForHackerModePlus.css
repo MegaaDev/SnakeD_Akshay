@@ -1834,5 +1834,49 @@ span {
     display: block;
   }
 }
+@media only screen and (max-height: 775px) {
+  .right img {
+    height: 50px;
+  }
+  .left img {
+    height: 50px;
+    transform: rotate(180deg);
+  }
+  .up img {
+    height: 50px;
+    transform: rotate(-90deg);
+  }
+  .down img {
+    height: 50px;
+    transform: rotate(90deg);
+  }
+  .right {
+    position: absolute;
+    top: 84%;
+    right: 25%;
+  }
+  .left {
+    position: absolute;
 
+    top: 84%;
+    left: 25%;
+  }
+  .up {
+    position: absolute;
+    top: 76%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .down {
+    position: absolute;
+    top: 92%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .circle {
+    height: 50px;
+    width: 50px;
 
+    top: 84.2%;
+  }
+}
