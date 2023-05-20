@@ -1397,6 +1397,7 @@ span {
   height: 80px;
   width: 80px;
   margin-top: 40px;
+  cursor: pointer;
 }
 
 .restart-icon img {
